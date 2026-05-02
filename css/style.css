@@ -1054,34 +1054,53 @@ header .ham-burger.active span:nth-child(2) {
 
 .gallery h2 {
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     color: #333;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
+.gallery-intro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #555;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.5;
+}
+
 /* Container for gallery items */
 .gallery-container {
-    display: flex;
-    justify-content: space-between; /* Espaço entre as imagens */
-    flex-wrap: wrap; /* Quebra de linha em telas pequenas */
-    gap: 20px; /* Espaçamento entre as imagens */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
     max-width: 100%;
     width: 100%;
     margin: 0 auto;
-    padding: 0 12px;
     box-sizing: border-box;
+}
+
+@media (max-width: 1100px) {
+	.gallery-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 700px) {
+	.gallery-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 /* Gallery Item */
 .gallery-item {
-    flex: 1 1 23%; /* Cada imagem ocupa 23% do container, permitindo que caibam 4 imagens por linha */
     min-width: 0;
     border-radius: 8px; /* Bordas arredondadas */
     overflow: hidden; /* Esconde qualquer parte da imagem que ultrapasse a área */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     transition: transform 0.3s ease; /* Transição suave no hover */
     position: relative; /* Para garantir que a imagem se ajuste à caixa */
+    aspect-ratio: 5 / 4;
 }
 
 /* Image Style */
@@ -1090,6 +1109,7 @@ header .ham-burger.active span:nth-child(2) {
     height: 100%; /* A imagem ocupa toda a altura da box */
     object-fit: cover; /* Assegura que a imagem cubra completamente a box */
     border-radius: 8px; /* Bordas arredondadas nas imagens */
+    display: block;
 }
 
 /* Hover Effect */
@@ -1473,21 +1493,25 @@ header .ham-burger.active span:nth-child(2) {
 		padding: 0 12px;
 	}
 
-	.gallery-container {
-		flex-direction: column;
-		align-items: stretch;
+	.gallery-intro {
+		font-size: 0.95rem;
 		padding: 0 12px;
+		margin-bottom: 24px;
+	}
+
+	.gallery-container {
+		grid-template-columns: 1fr;
 		gap: 16px;
 	}
 
 	.gallery-item {
-		flex: 1 1 100%;
+		aspect-ratio: 4 / 3;
 		max-width: 100%;
 	}
 
 	.gallery-item img {
-		min-height: 200px;
-		max-height: 280px;
+		min-height: 0;
+		max-height: none;
 	}
 
 	.price-package .content {
