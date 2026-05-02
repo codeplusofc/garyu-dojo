@@ -1,323 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
+	<meta charset="UTF-8">
 	<title>Garyū Dojo — Kyokushin Karate</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Garyū Dojo — escola de Karate Kyokushin. Treino, disciplina e comunidade.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-	<!-- Start Header  -->
-	<header>
-		<div class="container">
-			<div class="logo">
-				<a href=""><img src="images/logo-garyu.png" alt="Garyū Dojo — Kyokushin Karate"></a>
-			</div>
-			<a href="javascript:void(0)" class="ham-burger">
-				<span></span>
-				<span></span>
+	<header class="site-header" id="top">
+		<div class="container header-inner">
+			<a href="#home" class="logo" aria-label="Garyū Dojo — início">
+				<img src="images/logo-garyu.png" width="120" height="120" alt="Garyū Dojo">
 			</a>
-			<div class="nav">
+			<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+				<span class="nav-toggle-bar"></span>
+				<span class="nav-toggle-bar"></span>
+			</button>
+			<nav class="site-nav" id="site-nav" aria-label="Principal">
 				<ul>
 					<li><a href="#home">Início</a></li>
 					<li><a href="#about">Sobre</a></li>
 					<li><a href="#service">Kyokushin</a></li>
 					<li><a href="#classes">Instrutores</a></li>
+					<li><a href="#schedule">O dojo</a></li>
 					<li><a href="#gallery">Galeria</a></li>
 					<li><a href="#contact">Contato</a></li>
 				</ul>
-			</div>
+			</nav>
 		</div>
 	</header>
-	<!-- End Header  -->
+	<div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
 
-	<!-- Start Home -->
-	<section class="home wow flash" id="home">
-		<div class="container">
-			<h1 class="wow slideInLeft" data-wow-delay="1s">Força pela <span>disciplina</span></h1>
-			<h1 class="wow slideInRight" data-wow-delay="1s">Caminho da <span>verdade suprema</span></h1>
-			<h1 class="wow slideInRight" data-wow-delay="1s">Texto de exemplo — Garyū Dojo.</h1>
-		</div>
-		<!-- go down -->
-		<a href="#about" class="go-down">
-			<i class="fa fa-angle-down" aria-hidden="true"></i>
-		</a>
-		<!-- go down -->
-
-	</section>
-	<!-- End Home -->
-
-	<!-- Start Último Evento -->
-<section class="latest-event" id="latest-event">
-    <div class="container">
-        <div class="event-image">
-            <img src="https://picsum.photos/seed/garyuevent/900/500" alt="Evento de exemplo" class="img-fluid">
-        </div>
-        <h2>Evento fictício: Open Regional de Kata 2026</h2>
-        <p class="event-date">Data: 14 de março de 2026 (placeholder)</p>
-        <p class="highlight">Este bloco usa texto aleatório só para preencher o layout. Nada aqui é um evento real do dojo.</p>
-        <p>Lorem ipsum dolor sit amet: treinos de fim de semana, faixas coloridas imaginárias e um pódio que só existe neste parágrafo de demonstração.</p>
-        <a href="#" class="btn-more">Saiba mais (link inativo)</a>
-    </div>
-</section>
-<!-- End Último Evento -->
-
-
-	<!-- Start About -->
-	<section class="about" id="about">
-		<div class="container">
-			<div class="content">
-				<div class="box wow bounceInUp">
-					<div class="inner">
-						<div class="img">
-							<img src="https://picsum.photos/seed/garyuabout1/600/400" alt="Treino de exemplo" />
-						</div>
-						<div class="text">
-							<h4>Aula experimental (texto fictício)</h4>
-							<p>Parágrafo placeholder: venha conhecer tatames que talvez não existam neste endereço. Kyokushin, kihon, kata e muita água no canto da boca — tudo inventado para o protótipo do site.</p>
-						</div>
-					</div>
+	<main>
+		<section class="hero" id="home">
+			<div class="hero-bg" role="img" aria-label=""></div>
+			<div class="hero-overlay"></div>
+			<div class="container hero-content">
+				<p class="hero-eyebrow">Kyokushin Karate</p>
+				<h1 class="hero-title">Força pela disciplina. <span class="hero-accent">Caminho da verdade suprema.</span></h1>
+				<p class="hero-lead">Garyū Dojo — treino sério, ambiente acolhedor e tradição viva no tatame.</p>
+				<div class="hero-actions">
+					<a href="#contact" class="btn btn-primary">Agende uma visita</a>
+					<a href="#about" class="btn btn-ghost">Conheça o dojo</a>
 				</div>
-				<div class="box wow bounceInUp" data-wow-delay="0.2s">
-					<div class="inner">
-						<div class="img">
-							<img src="https://picsum.photos/seed/garyuabout2/600/400" alt="Academia de exemplo" />
-						</div>
-						<div class="text">
-							<h4>Outro título qualquer</h4>
-							<p>Mais texto aleatório: disciplina, respeito e um cronograma que foi gerado só para ocupar espaço. Substitua por conteúdo real quando tiver os dados oficiais do Garyū Dojo.</p>
-						</div>
+			</div>
+			<a href="#latest-event" class="hero-scroll" aria-label="Rolar para baixo">
+				<span class="hero-scroll-line"></span>
+			</a>
+		</section>
+
+		<section class="section section-event" id="latest-event">
+			<div class="container">
+				<div class="event-card">
+					<div class="event-card-media">
+						<img src="images/galeria-turma-tatame-vermelho.png" alt="Turma em treino no dojo" width="900" height="560" loading="lazy">
 					</div>
-				</div>
-				<div class="box wow bounceInUp" data-wow-delay="0.4s">
-					<div class="inner">
-						<div class="img">
-							<img src="https://picsum.photos/seed/garyuabout3/600/400" alt="Equipamentos de exemplo" />
-						</div>
-						<div class="text">
-							<h4>Estrutura “lorem ipsum”</h4>
-							<p>Imagens abaixo vêm do serviço picsum.photos com seeds fixas — são fotos genéricas, não necessariamente de karatê. Troque por fotos do dojo quando quiser.</p>
-						</div>
+					<div class="event-card-body">
+						<span class="section-tag">Em destaque</span>
+						<h2 class="event-card-title">Open Regional de Kata 2026 <span class="title-note">(exemplo)</span></h2>
+						<p class="event-card-date">14 de março de 2026</p>
+						<p class="event-card-text">Bloco de evento para você substituir por datas e textos reais. Use esta área para divulgar seminários, exames de faixa e competições.</p>
+						<a href="#" class="btn btn-primary btn-sm">Saiba mais</a>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End About -->
+		</section>
 
-
-	<!-- Start Service -->
-	<section class="service" id="service">
-		<div class="container">
-			<div class="content">
-				<div class="text box wow slideInLeft">
-					<h2>Kyokushin Karate</h2>
-					<p>Bloco de texto genérico: prática de impacto, espírito OSU! e três frases que não comprometem ninguém juridicamente. Use esta área para filosofia da escola, história da linhagem ou grade de horários reais.</p>
-					<img src="https://picsum.photos/seed/garyuservice/800/450" alt="Imagem ilustrativa aleatória"
-						style="width: 100%; height: auto; margin-top: 10px;">
-				</div>
-
-				<!-- Botões ao invés de acordeão -->
-				<div class="button-container">
-					<a href="#" class="button">Karate Kyokushin</a>
-					<a href="#" class="button">Kumite (placeholder)</a>
-					<a href="#" class="button">Kata (placeholder)</a>
-					<a href="#" class="button">Condicionamento</a>
-					<a href="#" class="button">Infantil (exemplo)</a>
+		<section class="section section-about" id="about">
+			<div class="container">
+				<header class="section-head">
+					<span class="section-tag">Sobre nós</span>
+					<h2 class="section-title">Três pilares do treino</h2>
+					<p class="section-desc">Textos de exemplo — personalize com a história real do Garyū Dojo.</p>
+				</header>
+				<div class="about-grid">
+					<article class="about-card">
+						<div class="about-card-img">
+							<img src="images/about1.jpg" alt="Treino no dojo" width="600" height="380" loading="lazy">
+						</div>
+						<div class="about-card-body">
+							<h3>Aula experimental</h3>
+							<p>Venha conhecer o método, o tatame e a equipe. Substitua este parágrafo pelos detalhes da sua aula experimental.</p>
+						</div>
+					</article>
+					<article class="about-card">
+						<div class="about-card-img">
+							<img src="images/about2.jpg" alt="Ambiente da academia" width="600" height="380" loading="lazy">
+						</div>
+						<div class="about-card-body">
+							<h3>Disciplina e respeito</h3>
+							<p>Kyokushin exige constância. Ajuste este texto com os valores que o dojo prega no dia a dia.</p>
+						</div>
+					</article>
+					<article class="about-card">
+						<div class="about-card-img">
+							<img src="images/about3.jpg" alt="Equipamentos de treino" width="600" height="380" loading="lazy">
+						</div>
+						<div class="about-card-body">
+							<h3>Estrutura</h3>
+							<p>Descreva tatames, sacos, espaço infantil e horários — conteúdo real substitui este placeholder.</p>
+						</div>
+					</article>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End Service -->
+		</section>
 
-	<!-- Start Classes -->
-	<section class="classes" id="classes">
-		<div class="container">
-			<div class="content">
-				<div class="box img wow slideInLeft">
-					<img src="https://picsum.photos/seed/garyuclass/700/900" alt="Instrutor — imagem ilustrativa" />
+		<section class="section section-kyokushin" id="service">
+			<div class="container kyokushin-layout">
+				<div class="kyokushin-copy">
+					<header class="section-head section-head--on-dark">
+						<span class="section-tag">Estilo</span>
+						<h2 class="section-title">Kyokushin Karate</h2>
+						<p class="section-desc">Prática de impacto, kihon, kata e kumite. Espírito de perseverança — OSU! Use este bloco para filosofia da escola ou história da linhagem.</p>
+					</header>
+					<div class="kyokushin-media">
+						<img src="images/galeria-cerimonia-faixa-aluno.png" alt="Cerimônia de faixa no dojo" width="800" height="500" loading="lazy">
+					</div>
 				</div>
-				<div class="box text wow slideInRight">
-					<h2>Sensei Placeholder da Silva</h2>
-					<p>Nome e biografia totalmente fictícios. Nasceu numa terça-feira qualquer, começou a treinar em 199X e hoje ensina “o estilo do último parágrafo que você editar”. Já participou de zero a infinitos campeonatos imaginários.
-
-						Em outro parágrafo aleatório: viajou para três países cujo nome você pode trocar depois, trouxe diplomas de papelão narrativo e acredita que o importante é substituir este texto antes de publicar.
-
-						Atualmente coordena turmas de manhã, tarde e noite — horários inventados — e repete que Osu! é cumprimento e atitude (isso pelo menos é verdade no Kyokushin).</p>
+				<div class="kyokushin-tags" aria-label="Modalidades e focos">
+					<a href="#" class="tag">Karate Kyokushin</a>
+					<a href="#" class="tag">Kumite</a>
+					<a href="#" class="tag">Kata</a>
+					<a href="#" class="tag">Condicionamento</a>
+					<a href="#" class="tag">Infantil</a>
+					<a href="#" class="tag">Exames de faixa</a>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End Classes -->
+		</section>
 
-	<!-- Start Today -->
-	<section class="start-today">
-		<div class="container">
-			<div class="content">
-				<div class="box text wow slideInLeft">
-					<h2>Comece quando quiser (copy de exemplo)</h2>
-					<p>Mais um texto solto: o dojo é um espaço metafórico até você colocar endereço de verdade. Enquanto isso, este parágrafo incentiva qualquer pessoa a “dar o primeiro passo” sem prometer nada concreto. Edite à vontade.
-					</p>
-					<a href="#contact" class="btn">Ir para contato</a>
+		<section class="section section-instructor" id="classes">
+			<div class="container instructor-layout">
+				<div class="instructor-visual">
+					<div class="instructor-frame">
+						<img src="images/class1.jpg" alt="Instrutor no dojo" width="700" height="900" loading="lazy">
+					</div>
 				</div>
-				<div class="box video wow slideInRight">
-					<div class="video-box">
-						<div class="video-thumbnail">
-							<iframe src="https://player.vimeo.com/video/1084537" width="100%" height="100%" style="max-width:100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo demonstrativo"></iframe>
+				<div class="instructor-copy">
+					<span class="section-tag">Instrução</span>
+					<h2 class="section-title">Sensei <span class="text-muted">(nome de exemplo)</span></h2>
+					<p>Biografia fictícia: substitua por formação real, graduação, federação e experiência em competição. Este layout destaca a figura do professor sem distrações.</p>
+					<p>Coordena turmas e reforça que Osu! é cumprimento e postura — pilar do Kyokushin.</p>
+					<a href="#contact" class="btn btn-primary btn-sm">Falar com o dojo</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-cta">
+			<div class="container cta-inner">
+				<div class="cta-copy">
+					<h2 class="cta-title">Pronto para o primeiro passo?</h2>
+					<p>Entre em contato, tire dúvidas sobre faixa etária, horários e equipamentos. Texto de exemplo até você publicar os dados oficiais.</p>
+					<a href="#contact" class="btn btn-primary">Ir para contato</a>
+				</div>
+				<div class="cta-video">
+					<div class="video-shell">
+						<div class="video-ratio">
+							<iframe src="https://player.vimeo.com/video/1084537" title="Vídeo demonstrativo — troque pelo canal do dojo" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 						</div>
-						<div class="video-info">
-							<h3>Vídeo placeholder (troque pelo canal do dojo)</h3>
-						</div>
+						<p class="video-caption">Vídeo placeholder — substitua por material do Garyū Dojo.</p>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End Start Today -->
+		</section>
 
-	<!-- Start Schedule -->
-	<section class="schedule" id="schedule">
-		<div class="container">
-			<div class="content">
-				<div class="box text wow slideInLeft">
-					<h2>Garyū Dojo — texto institucional fictício</h2>
+		<section class="section section-dojo" id="schedule">
+			<div class="container dojo-panel">
+				<header class="section-head">
+					<span class="section-tag">Instalações</span>
+					<h2 class="section-title">Garyū Dojo</h2>
+					<p class="section-desc">Texto institucional de exemplo. Ajuste números, conquistas da equipe e descrição física do espaço quando for publicar.</p>
+				</header>
+				<ul class="dojo-list">
+					<li>Área de treino com tatames adequados</li>
+					<li>Equipamentos para condicionamento e técnica</li>
+					<li>Ambiente para iniciantes e avançados</li>
+					<li>Água e descanso ao final do treino</li>
+				</ul>
+				<p class="dojo-closing">Feche com a frase que representa o dojo — ou reescreva este bloco do zero.</p>
+				<figure class="dojo-figure">
+					<img src="images/schedule1.png" alt="Ambiente do dojo" width="900" height="500" loading="lazy">
+				</figure>
+			</div>
+		</section>
 
-					<p>
-						O Garyū Dojo, neste rascunho, é apresentado como uma escola de Kyokushin Karate com identidade visual vermelha, preta e branca. Os números a seguir são aleatórios: “mais de 127 alunos satisfeitos”, “14 estantes de troféus de mentira” e “desde sempre no coração da comunidade”.
-						Outro parágrafo genérico sobre tatames, ventilação e água gelada no final do treino — ajuste para a realidade quando tiver.
-					</p>
-					
-					<ul class="resources-list">
-						<li>Área de treino (descrição exemplo);</li>
-						<li>“Dois tatames” ou quantos forem de verdade;</li>
-						<li>Equipamentos listados só como modelo;</li>
-						<li>Saco de pancada imaginário número 7.</li>
-					</ul>
-					
-					<p style="text-align: justify;">
-						Feche esta seção com uma frase motivacional qualquer — ou apague e escreva de novo do zero quando o conteúdo oficial estiver pronto.
-					</p>
-					<img src="https://picsum.photos/seed/garyuschedule/900/500" alt="Ambiente — imagem ilustrativa" />
-				</div>				
+		<section class="section section-gallery" id="gallery">
+			<div class="container">
+				<header class="section-head section-head--left">
+					<span class="section-tag">Galeria</span>
+					<h2 class="section-title">Alunos no tatame</h2>
+					<p class="section-desc">Cerimônias, certificados e momentos em grupo.</p>
+				</header>
+				<div class="gallery-grid">
+					<figure class="gallery-cell gallery-cell--tall">
+						<img src="images/galeria-cerimonia-faixa-aluna.png" width="500" height="640" loading="lazy" alt="Cerimônia de graduação no tatame vermelho.">
+					</figure>
+					<figure class="gallery-cell">
+						<img src="images/galeria-certificados-laranja.png" width="500" height="400" loading="lazy" alt="Alunos com certificados de faixa laranja.">
+					</figure>
+					<figure class="gallery-cell">
+						<img src="images/galeria-cerimonia-faixa-aluno.png" width="500" height="400" loading="lazy" alt="Entrega de faixa laranja e certificado.">
+					</figure>
+					<figure class="gallery-cell">
+						<img src="images/galeria-turma-tatame-azul.png" width="500" height="400" loading="lazy" alt="Turma em guarda no tatame azul.">
+					</figure>
+					<figure class="gallery-cell gallery-cell--wide">
+						<img src="images/galeria-turma-tatame-vermelho.png" width="900" height="480" loading="lazy" alt="Grupo em guarda no tatame vermelho.">
+					</figure>
+				</div>
 			</div>
-		</div>
-	</section>
-	<!-- End Schedule -->
-<!-- Start Gallery -->
-<section class="gallery" id="gallery">
-	<div class="container">
-		<h2>Galeria — alunos no dojo</h2>
-		<p class="gallery-intro">Momentos de treino, cerimônias de faixa e a turma no tatame.</p>
-		<div class="gallery-container">
-			<div class="gallery-item">
-				<img src="images/galeria-cerimonia-faixa-aluna.png" width="500" height="400" loading="lazy" alt="Cerimônia de graduação: instrutor de faixa preta entrega faixa laranja e certificado a uma aluna em seiza no tatame vermelho.">
-			</div>
-			<div class="gallery-item">
-				<img src="images/galeria-certificados-laranja.png" width="500" height="400" loading="lazy" alt="Dois alunos de faixa laranja posando com certificados de conclusão de técnicas básicas de Karate Kyokushin no dojo.">
-			</div>
-			<div class="gallery-item">
-				<img src="images/galeria-cerimonia-faixa-aluno.png" width="500" height="400" loading="lazy" alt="Cerimônia de graduação: instrutor entrega faixa laranja e certificado a um aluno em postura formal no dojo.">
-			</div>
-			<div class="gallery-item">
-				<img src="images/galeria-turma-tatame-azul.png" width="500" height="400" loading="lazy" alt="Grupo de alunos de várias idades e instrutor de faixa preta em guarda no tatame azul do dojo.">
-			</div>
-			<div class="gallery-item">
-				<img src="images/galeria-turma-tatame-vermelho.png" width="500" height="400" loading="lazy" alt="Turma de karatecas em guarda no tatame vermelho, com faixas de diferentes níveis.">
-			</div>
-		</div>
-	</div>
-</section>
-	<!-- End Gallery -->
+		</section>
 
-	<!-- Start Contact -->
-	<section class="contact" id="contact">
-		<div class="container">
-			<div class="content">
-				<div class="box form wow slideInLeft">
-					<form>
-						<input type="text" placeholder="Seu nome (formulário não envia ainda)">
-						<input type="text" placeholder="E-mail fictício">
-						<input type="text" placeholder="Telefone de exemplo">
-						<textarea placeholder="Mensagem de teste"></textarea>
-						<button type="submit">Enviar</button>
+		<section class="section section-contact" id="contact">
+			<div class="container contact-layout">
+				<div class="contact-form-wrap">
+					<h2 class="contact-form-title">Envie uma mensagem</h2>
+					<p class="contact-form-hint">Formulário de demonstração — conecte a um backend ou serviço de e-mail quando for ao ar.</p>
+					<form class="contact-form" action="#" method="post">
+						<label class="sr-only" for="f-name">Nome</label>
+						<input id="f-name" type="text" name="name" placeholder="Seu nome" autocomplete="name">
+						<label class="sr-only" for="f-email">E-mail</label>
+						<input id="f-email" type="email" name="email" placeholder="E-mail" autocomplete="email">
+						<label class="sr-only" for="f-phone">Telefone</label>
+						<input id="f-phone" type="tel" name="phone" placeholder="Telefone / WhatsApp" autocomplete="tel">
+						<label class="sr-only" for="f-msg">Mensagem</label>
+						<textarea id="f-msg" name="message" rows="4" placeholder="Sua mensagem"></textarea>
+						<button type="submit" class="btn btn-primary">Enviar</button>
 					</form>
 				</div>
-				<div class="box text wow slideInRight">
-					<h2>Fale com o Garyū Dojo (dados placeholder)</h2>
-					<p class="title-p">Endereço e telefone abaixo são inventados para o layout. Troque por informações reais antes de colocar no ar.</p>
-					<div class="info">
-						<ul>
-							<li><span class="fa fa-map-marker"></span> Av. Exemplo, 1234 — Bairro Qualquer — Cidade/UF.</li>
-							<li><span class="fa fa-phone"></span> Fone: (00) 0000-0000 — WhatsApp: (00) 90000-0000</li>
-						</ul>
+				<div class="contact-aside">
+					<h2 class="aside-title">Fale com o Garyū Dojo</h2>
+					<p class="aside-note">Dados abaixo são fictícios — atualize antes de publicar.</p>
+					<ul class="contact-details">
+						<li><span class="fa fa-map-marker" aria-hidden="true"></span> Av. Exemplo, 1234 — Bairro — Cidade/UF</li>
+						<li><span class="fa fa-phone" aria-hidden="true"></span> (00) 0000-0000 · WhatsApp (00) 90000-0000</li>
+					</ul>
+					<div class="social-row">
+						<a href="#" class="social-btn" aria-label="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+						<a href="#" class="social-btn" aria-label="YouTube"><span class="fa fa-youtube-play" aria-hidden="true"></span></a>
 					</div>
-					<div class="social">
-						<a href="#"><span class="fa fa-facebook"></span></a>
-						<a href="#"><span class="fa fa-youtube-play"></span></a>
-					</div>					
 				</div>
 			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p class="footer-brand">Garyū Dojo · Kyokushin Karate</p>
+			<p class="footer-copy">© <span id="y"></span> — Todos os direitos reservados.</p>
 		</div>
-	</section>
-	<!-- End Contact -->
-
-
-
-	<!-- jquery -->
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
-		$(document).ready(function () {
+		document.getElementById('y').textContent = new Date().getFullYear();
+		$(function () {
+			var $header = $('.site-header');
+			var $nav = $('.site-nav');
+			var $toggle = $('.nav-toggle');
+			var $backdrop = $('#nav-backdrop');
 
-			$(".ham-burger, .nav ul li a").click(function () {
+			function setNavOpen(open) {
+				$nav.toggleClass('is-open', open);
+				$toggle.toggleClass('is-active', open).attr('aria-expanded', open);
+				$('body').toggleClass('nav-open', open);
+				$backdrop.prop('hidden', !open).attr('aria-hidden', open ? 'false' : 'true');
+			}
 
-				$(".nav").toggleClass("open")
+			function closeNav() {
+				setNavOpen(false);
+			}
 
-				$(".ham-burger").toggleClass("active");
-			})
-			$(".accordian-container").click(function () {
-				$(".accordian-container").children(".body").slideUp();
-				$(".accordian-container").removeClass("active")
-				$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
-				$(this).children(".body").slideDown();
-				$(this).addClass("active")
-				$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
-			})
+			$toggle.on('click', function () {
+				setNavOpen(!$nav.hasClass('is-open'));
+			});
 
-			$(".nav ul li a, .go-down").click(function (event) {
-				if (this.hash !== "") {
+			$backdrop.on('click', closeNav);
 
-					event.preventDefault();
+			$nav.find('a').on('click', function () {
+				if (window.matchMedia('(max-width: 991px)').matches) closeNav();
+			});
 
-					var hash = this.hash;
+			$(window).on('scroll', function () {
+				$header.toggleClass('is-scrolled', window.scrollY > 24);
+			}).trigger('scroll');
 
-					$('html,body').animate({
-						scrollTop: $(hash).offset().top
-					}, 800, function () {
-						window.location.hash = hash;
-					});
-
-					// add active class in navigation
-					$(".nav ul li a").removeClass("active")
-					$(this).addClass("active")
-				}
-			})
-		})
-
+			$('a[href^="#"]').on('click', function (e) {
+				var hash = this.hash;
+				if (!hash) return;
+				var $t = $(hash);
+				if (!$t.length) return;
+				e.preventDefault();
+				$('html, body').animate({ scrollTop: $t.offset().top - 72 }, 650);
+				history.pushState(null, '', hash);
+			});
+		});
 	</script>
 	<script src="js/wow.min.js"></script>
 	<script>
-		wow = new WOW(
-			{
-				animateClass: 'animated',
-				offset: 0,
-			}
-		);
-		wow.init();
+		if (typeof WOW !== 'undefined') {
+			new WOW({ animateClass: 'animated', offset: 40, mobile: false }).init();
+		}
 	</script>
 </body>
 
