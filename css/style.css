@@ -508,20 +508,19 @@ button.btn-primary {
 }
 
 .event-card-media {
-	min-height: 280px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #e4e4e7;
-	padding: 16px;
+	min-height: min(360px, 42vw);
+	position: relative;
+	background: #18181b;
+	overflow: hidden;
 }
 
 .event-card-media img {
-	width: auto;
-	max-width: 100%;
-	height: auto;
-	max-height: min(420px, 52vh);
-	object-fit: contain;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 28%;
 }
 
 .event-card-body {
@@ -560,8 +559,8 @@ button.btn-primary {
 		grid-template-columns: 1fr;
 	}
 
-	.event-card-media img {
-		max-height: min(360px, 48vh);
+	.event-card-media {
+		min-height: min(280px, 48vw);
 	}
 }
 
@@ -599,22 +598,19 @@ button.btn-primary {
 }
 
 .about-card-img {
-	min-height: 220px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #e4e4e7;
-	padding: 12px 10px;
+	aspect-ratio: 16 / 10;
+	position: relative;
 	overflow: hidden;
+	background: #18181b;
 }
 
 .about-card-img img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
-	max-width: 100%;
-	height: auto;
-	max-height: min(280px, 42vw);
-	object-fit: contain;
-	object-position: center center;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 26%;
 	transition: transform 0.5s var(--ease);
 }
 
@@ -679,21 +675,18 @@ button.btn-primary {
 	overflow: hidden;
 	border: 1px solid var(--border);
 	box-shadow: var(--shadow);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--surface-2);
-	min-height: 200px;
-	padding: 12px;
+	position: relative;
+	aspect-ratio: 16 / 10;
+	background: #0c0c0f;
 }
 
 .kyokushin-media img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
-	max-width: 100%;
-	height: auto;
-	max-height: min(400px, 50vw);
-	object-fit: contain;
-	object-position: center center;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 28%;
 }
 
 .kyokushin-tags {
@@ -746,20 +739,19 @@ button.btn-primary {
 	overflow: hidden;
 	box-shadow: var(--shadow-soft);
 	border: 1px solid #e4e4e7;
-	background: #ececee;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 12px;
+	background: #18181b;
+	position: relative;
+	aspect-ratio: 3 / 4;
+	max-height: min(640px, 78vh);
 }
 
 .instructor-frame img {
-	width: auto;
-	max-width: 100%;
-	height: auto;
-	max-height: min(640px, 78vh);
-	object-fit: contain;
-	object-position: center center;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 22%;
 }
 
 .instructor-copy .section-tag {
@@ -910,20 +902,18 @@ button.btn-primary {
 	overflow: hidden;
 	box-shadow: var(--shadow-soft);
 	border: 1px solid #e4e4e7;
-	background: #e4e4e7;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 12px;
+	background: #18181b;
+	position: relative;
+	aspect-ratio: 16 / 9;
 }
 
 .dojo-figure img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
-	max-width: 100%;
-	height: auto;
-	max-height: min(480px, 60vh);
-	object-fit: contain;
-	object-position: center center;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 30%;
 }
 
 /* —— Gallery —— */
@@ -943,7 +933,7 @@ button.btn-primary {
 .gallery-grid {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: minmax(240px, 30vw) minmax(240px, 30vw);
+	grid-template-rows: minmax(220px, 28vw) minmax(220px, 28vw);
 	gap: 12px;
 }
 
@@ -951,26 +941,34 @@ button.btn-primary {
 	margin: 0;
 	border-radius: var(--radius);
 	overflow: hidden;
-	background: #d4d4d8;
+	background: #18181b;
 	min-height: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 8px;
+	position: relative;
+	padding: 0;
 }
 
 .gallery-cell img {
-	max-width: 100%;
-	max-height: 100%;
-	width: auto;
-	height: auto;
-	object-fit: contain;
-	object-position: center center;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 28%;
 	transition: transform 0.5s var(--ease);
 }
 
 .gallery-cell:hover img {
-	transform: scale(1.03);
+	transform: scale(1.04);
+}
+
+/* Fotos altas (retrato): puxa o enquadramento um pouco para cima */
+.gallery-cell--tall img {
+	object-position: 50% 20%;
+}
+
+/* Faixa larga (paisagem em grupo): centro um pouco mais alto */
+.gallery-cell--wide img {
+	object-position: 50% 32%;
 }
 
 .gallery-cell--tall {
