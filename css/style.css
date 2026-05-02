@@ -3,10 +3,26 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lora:wght@400;700&display=swap');
 
+html {
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+	width: 100%;
+	overscroll-behavior-x: none;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	overscroll-behavior-x: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 * {
@@ -23,9 +39,11 @@ header {
 	left: 0px;
 	top: 0px;
 	width: 100%;
+	max-width: 100%;
 	z-index: 10;
 	background-color: #000000;
 	padding: 15px 15px;
+	overflow-x: hidden;
 }
 
 header .container {
@@ -50,21 +68,25 @@ header .logo a span {
 header .nav {
 	position: fixed;
 	background-color: #b71c1c;
-	width: 280px;
+	width: min(280px, 100%);
 	top: 0;
 	right: 0;
 	height: 100%;
+	height: 100dvh;
 	z-index: 99;
 	padding: 100px 0px 15px;
-	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
+	padding-bottom: max(15px, env(safe-area-inset-bottom));
+	-webkit-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
 	-webkit-transition: transform .5s ease;
 	transition: transform .5s ease;
+	pointer-events: none;
 }
 
 header .nav.open {
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	pointer-events: auto;
 }
 
 header .nav ul {
@@ -161,6 +183,9 @@ header .ham-burger.active span:nth-child(2) {
 .container {
 	max-width: 1170px;
 	margin: auto;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Estilo geral para a seção do último evento */
@@ -214,12 +239,16 @@ header .ham-burger.active span:nth-child(2) {
 
 /* Restaurando a fonte original do título, descrição e data */
 .latest-event h2 {
-    font-size: 2.2em; /* Diminuído para tornar o título mais discreto */
+    font-size: clamp(1.1rem, 2.5vw + 0.5rem, 2.2em);
     font-weight: 700;
     color: #c62828; /* Tom de amarelo forte */
     margin-top: 15px; /* Menos espaço acima do título */
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Reduzido o espaçamento das letras */
+    letter-spacing: 0.06em;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.2;
 }
 
 .latest-event p {
@@ -259,12 +288,24 @@ header .ham-burger.active span:nth-child(2) {
 
 /*Home section*/
 .home {
-	height: 100vh;
+	min-height: 100vh;
+	min-height: 100dvh;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
 	background-image: url('https://picsum.photos/seed/garyuhero/1920/1080');
+	background-position: center;
 	background-size: cover;
 	padding: 15px;
+	padding-left: max(15px, env(safe-area-inset-left));
+	padding-right: max(15px, env(safe-area-inset-right));
+	padding-top: max(100px, calc(env(safe-area-inset-top) + 88px));
+	padding-bottom: max(15px, env(safe-area-inset-bottom));
 	-webkit-display: flex;
 	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
 	position: relative;
 }
 
@@ -313,20 +354,38 @@ header .ham-burger.active span:nth-child(2) {
 	-webkit-display: flex;
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1;
+	flex: 1 1 auto;
+	width: 100%;
+	max-width: min(1170px, 100%);
+	min-width: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: max(12px, env(safe-area-inset-left));
+	padding-right: max(12px, env(safe-area-inset-right));
+	justify-content: center;
 }
 
 .home h1 {
 	color: #ffffff;
-	font-size: 60px;
+	font-size: clamp(1.05rem, 3.8vw + 0.55rem, 3.65rem);
 	font-weight: 700;
 	text-transform: uppercase;
 	margin: 0;
+	margin-bottom: 0.35em;
+	line-height: 1.2;
+	max-width: 100%;
+	min-width: 0;
+	align-self: stretch;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+	hyphens: manual;
 }
 
 .home h1 span {
 	color: #c62828;
-	;
+	display: inline;
+	word-break: break-word;
 }
 
 
@@ -349,6 +408,7 @@ header .ham-burger.active span:nth-child(2) {
 	flex: 1 1 33.33%;
 	/* Garante que as caixas ocupem igualmente 33% da largura */
 	max-width: 33.33%;
+	min-width: 0;
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
@@ -395,6 +455,8 @@ header .ham-burger.active span:nth-child(2) {
 	color: #ffffff;
 	text-align: center;
 	margin: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -408,12 +470,25 @@ header .ham-burger.active span:nth-child(2) {
 .service .content {
 	-webkit-display: flex;
 	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 0;
 }
 
 .service .content .box {
 	flex: 0 0 50%;
 	max-width: 50%;
+	min-width: 0;
 	padding: 15px;
+}
+
+.service .content .button-container {
+	flex: 0 0 50%;
+	max-width: 50%;
+	min-width: 0;
+	padding: 15px;
+	box-sizing: border-box;
+	align-self: flex-start;
 }
 
 /* Estilo para a lista de benefícios */
@@ -453,6 +528,8 @@ header .ham-burger.active span:nth-child(2) {
 	font-weight: 500;
 	color: #ffffff;
 	padding: 0px 0px 20px;
+	max-width: 100%;
+	overflow-wrap: anywhere;
 }
 
 .service .content .text p {
@@ -484,7 +561,7 @@ header .ham-burger.active span:nth-child(2) {
 
 /* Estilo para os botões */
 .service .button-container {
-	margin-top: 92px;
+	margin-top: 24px;
 	text-align: center;
 	/* Alinha os botões ao centro */
 }
@@ -575,35 +652,47 @@ header .ham-burger.active span:nth-child(2) {
 .classes .content {
 	-webkit-display: flex;
 	display: flex;
+	min-width: 0;
 }
 
 .classes .content .box {
 	padding: 15px;
 	flex: 0 0 50%;
 	max-width: 50%;
+	min-width: 0;
 }
 
 .classes .content .img img {
-    width: 70%;
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    transition: none;
-    margin-left: 90px; /* Adiciona um pouco de margem à esquerda, movendo a imagem para a direita */
+	width: 100%;
+	max-width: min(420px, 100%);
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	transition: none;
 }
 
 .classes .content .text h2 {
-	font-size: 30px;
+	font-size: clamp(1.2rem, 2vw + 0.75rem, 1.875rem);
 	font-weight: 500;
 	color: #000000;
 	padding: 0px 0px 20px;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	line-height: 1.2;
 }
 
 .classes .content .text p {
     font-size: 15px;
-    line-height: 20px;
+    line-height: 1.5;
     color: #000000;
-    margin: 0 10px 30px 0px; /* Adiciona margem à esquerda */
+    margin: 0 0 24px 0;
     padding: 0px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -698,17 +787,20 @@ header .ham-burger.active span:nth-child(2) {
 /*Start Today Section*/
 .start-today {
 	background-color: #222222;
+	padding: 48px 0;
 }
 
 .start-today .content {
 	-webkit-display: flex;
 	display: flex;
 	align-items: center;
+	min-width: 0;
 }
 
 .start-today .content .box {
 	flex: 0 0 50%;
 	max-width: 50%;
+	min-width: 0;
 	padding: 0px 15px;
 }
 
@@ -762,6 +854,9 @@ header .ham-burger.active span:nth-child(2) {
     background-color: #f7f7f7;  /* Fundo suave e sofisticado */
     border-radius: 20px;  /* Bordas mais arredondadas */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* Sombra sutil para profundidade */
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* Content inside the schedule */
@@ -769,8 +864,11 @@ header .ham-burger.active span:nth-child(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 30px;
+    max-width: min(1200px, 100%);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
 /* Box inside content (can hold text or other elements) */
@@ -780,24 +878,39 @@ header .ham-burger.active span:nth-child(2) {
     border-radius: 15px;  /* Borda arredondada */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);  /* Sombra sutil para profundidade */
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.schedule .content .box.text {
+	max-width: 100%;
 }
 
 /* Styling for the header inside .box */
 .schedule .content .text h2 {
     font-family: 'Merriweather', serif;  /* Fonte elegante e clássica */
-    font-size: 48px;  /* Tamanho maior para destacar */
+    font-size: clamp(1.2rem, 3.5vw + 0.35rem, 3rem);
     font-weight: bold;
     color: #c62828;  /* Cor amarela para o título */
     margin-bottom: 20px;
     text-align: left;
-    letter-spacing: 2px;  /* Espaçamento entre letras */
+    letter-spacing: 0.04em;
     text-transform: uppercase;  /* Título em maiúsculas */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  /* Sombra suave para o título */
     transition: transform 0.3s ease-in-out;  /* Transição suave para o hover */
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.2;
 }
 
-.schedule .content .text h2:hover {
-    transform: translateX(10px);  /* Desloca o título para a direita no hover */
+@media (hover: hover) and (pointer: fine) {
+	.schedule .content .text h2:hover {
+		transform: translateX(6px);
+	}
 }
 
 /* Paragraphs styling */
@@ -810,21 +923,30 @@ header .ham-burger.active span:nth-child(2) {
     padding-bottom: 30px;
     text-align: justify;
     font-weight: 400;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
 }
 
 /* Image styling */
 .schedule .content .text img {
-    width: 70%;
+    width: 100%;
     max-width: 600px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 15px;  /* Borda arredondada */
     margin-top: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* Sombra mais forte */
     transition: transform 0.4s ease, box-shadow 0.4s ease;  /* Efeito de zoom suave */
 }
 
-.schedule .content .text img:hover {
-    transform: scale(1.1);  /* Aumenta a imagem suavemente ao passar o mouse */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);  /* Sombra mais intensa */
+@media (hover: hover) and (pointer: fine) {
+	.schedule .content .text img:hover {
+		transform: scale(1.03);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+	}
 }
 
 /* Timing table styles */
@@ -844,10 +966,12 @@ header .ham-burger.active span:nth-child(2) {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.schedule .content .timing .table td:hover {
-    background-color: #c62828;
-    color: #fff;
-    transform: scale(1.05);  /* Efeito de zoom ao passar o mouse */
+@media (hover: hover) and (pointer: fine) {
+	.schedule .content .timing .table td:hover {
+		background-color: #c62828;
+		color: #fff;
+		transform: scale(1.02);
+	}
 }
 
 /* Table row styling */
@@ -882,6 +1006,8 @@ header .ham-burger.active span:nth-child(2) {
     line-height: 1.6;  /* Maior espaçamento entre as linhas */
     color: #444;  /* Cor do texto */
     margin-bottom: 30px;  /* Espaço abaixo da lista */
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 /* Estilo para cada item da lista */
@@ -905,15 +1031,15 @@ header .ham-burger.active span:nth-child(2) {
     transition: color 0.3s ease;  /* Transição suave para o hover */
 }
 
-/* Efeito de hover nos itens da lista */
-.resources-list li:hover {
-    transform: translateX(5px);  /* Move ligeiramente para a direita */
-    color: #c62828;  /* Cor amarela no hover */
-}
+@media (hover: hover) and (pointer: fine) {
+	.resources-list li:hover {
+		transform: translateX(4px);
+		color: #c62828;
+	}
 
-/* Efeito de hover no ícone */
-.resources-list li:hover::before {
-    color: #444;  /* Ícone escuro no hover */
+	.resources-list li:hover::before {
+		color: #444;
+	}
 }
 
 
@@ -921,6 +1047,9 @@ header .ham-burger.active span:nth-child(2) {
     padding: 60px 0;
     text-align: center;
     background-color: #f4f4f4; /* Fundo suave */
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .gallery h2 {
@@ -937,13 +1066,17 @@ header .ham-burger.active span:nth-child(2) {
     justify-content: space-between; /* Espaço entre as imagens */
     flex-wrap: wrap; /* Quebra de linha em telas pequenas */
     gap: 20px; /* Espaçamento entre as imagens */
-    max-width: 100%; /* Garante que a largura total não ultrapasse o limite */
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 12px;
+    box-sizing: border-box;
 }
 
 /* Gallery Item */
 .gallery-item {
     flex: 1 1 23%; /* Cada imagem ocupa 23% do container, permitindo que caibam 4 imagens por linha */
+    min-width: 0;
     border-radius: 8px; /* Bordas arredondadas */
     overflow: hidden; /* Esconde qualquer parte da imagem que ultrapasse a área */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -960,17 +1093,19 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 /* Hover Effect */
-.gallery-item:hover {
-    transform: scale(1.05); /* Efeito de zoom suave ao passar o mouse */
+@media (hover: hover) and (pointer: fine) {
+	.gallery-item:hover {
+		transform: scale(1.03);
+	}
 }
 
 /* Estilo para a caixa de vídeo sem borda */
 .video-box {
     display: block;
     position: relative;
-    width: 100%;  /* O contêiner ocupa 100% da largura disponível */
-    max-width: 420px;  /* Novo tamanho para diminuir um pouco mais o vídeo */
-    margin: 0 auto; /* Centraliza o vídeo */
+    width: 100%;
+    max-width: min(100%, 720px);
+    margin: 0 auto;
     overflow: hidden;
     background-color: #000; /* Cor de fundo escura */
     border-radius: 0;  /* Sem borda arredondada */
@@ -1018,11 +1153,13 @@ header .ham-burger.active span:nth-child(2) {
 .contact .content {
 	-webkit-display: flex;
 	display: flex;
+	min-width: 0;
 }
 
 .contact .content .box {
 	flex: 0 0 50%;
 	max-width: 50%;
+	min-width: 0;
 	padding: 15px;
 }
 
@@ -1077,6 +1214,10 @@ header .ham-burger.active span:nth-child(2) {
 	font-weight: 500;
 	color: #c62828;
 	padding: 0px 0px 20px;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	line-height: 1.2;
 }
 
 .contact .content .text p {
@@ -1085,6 +1226,8 @@ header .ham-burger.active span:nth-child(2) {
 	color: #ffffff;
 	margin: 0;
 	padding: 0px 0px 30px;
+	max-width: 100%;
+	overflow-wrap: anywhere;
 	font-family: 'Open-sans', sans-serif;
 }
 
@@ -1102,6 +1245,8 @@ header .ham-burger.active span:nth-child(2) {
 	letter-spacing: 1px;
 	position: relative;
 	padding-left: 40px;
+	max-width: 100%;
+	overflow-wrap: anywhere;
 	font-family: 'Open-Sans', sans-serif;
 }
 
@@ -1150,12 +1295,20 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 @media(max-width: 991px) {
+	/* Animações slideIn usam translateX(±2000px) e estouram a largura da página no mobile */
+	.wow.slideInLeft,
+	.wow.slideInRight {
+		-webkit-animation-name: fadeIn !important;
+		animation-name: fadeIn !important;
+	}
+
 	.home {
 		background-position: center;
 	}
 
 	.classes .content {
 		flex-wrap: wrap;
+		flex-direction: column;
 	}
 
 	.classes .content .box {
@@ -1164,18 +1317,73 @@ header .ham-burger.active span:nth-child(2) {
 	}
 
 	.classes .content .img {
-		display: none;
+		display: block;
+		text-align: center;
+		order: -1;
+	}
+
+	.classes .content .img img {
+		width: 100%;
+		max-width: 420px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		-webkit-transform: none;
+		transform: none;
 	}
 
 	.start-today .content .box {
 		padding: 15px;
 	}
+
+	.latest-event h2 {
+		font-size: 1.35rem;
+	}
+
+	.service .button-container .button {
+		max-width: 100%;
+		padding: 16px 24px;
+		font-size: 18px;
+	}
 }
 
 
 @media(max-width: 767px) {
-	.home h1 {
-		font-size: 40px;
+	.about {
+		padding: 48px 0;
+	}
+
+	.service {
+		padding: 48px 0;
+	}
+
+	.classes {
+		padding: 48px 0 32px;
+	}
+
+	.contact {
+		padding: 48px 0;
+	}
+
+	.latest-event {
+		padding: 28px 12px;
+		border-radius: 0;
+	}
+
+	.latest-event .event-image {
+		height: auto;
+		min-height: 200px;
+		max-height: 55vh;
+	}
+
+	.latest-event h2 {
+		font-size: 1.15rem;
+		letter-spacing: 0.5px;
+	}
+
+	.latest-event p {
+		font-size: 1rem;
+		padding: 0 4px;
 	}
 
 	.about .content {
@@ -1196,6 +1404,13 @@ header .ham-burger.active span:nth-child(2) {
 		max-width: 100%;
 	}
 
+	.service .content .button-container {
+		flex: 0 0 100%;
+		max-width: 100%;
+		width: 100%;
+		margin-top: 0;
+	}
+
 	.classes .content .class-items .item {
 		flex-wrap: wrap;
 	}
@@ -1206,12 +1421,37 @@ header .ham-burger.active span:nth-child(2) {
 		max-width: 100%;
 	}
 
+	.schedule {
+		padding: 48px 0;
+		border-radius: 0;
+	}
+
 	.schedule .content {
 		flex-wrap: wrap;
+		margin-left: 0;
+		margin-right: 0;
+		padding: 0 12px;
 	}
 
 	.schedule .content .box {
 		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 20px 16px;
+	}
+
+	.schedule .content .text h2 {
+		font-size: 1.5rem;
+		letter-spacing: 1px;
+		word-wrap: break-word;
+	}
+
+	.schedule .content .text p,
+	.resources-list {
+		font-size: 16px;
+	}
+
+	.schedule .content .text img {
+		width: 100%;
 		max-width: 100%;
 	}
 
@@ -1224,13 +1464,30 @@ header .ham-burger.active span:nth-child(2) {
 		max-width: 100%;
 	}
 
-	.gallery .content {
-		flex-wrap: wrap;
+	.gallery {
+		padding: 40px 0;
 	}
 
-	.gallery .content .box {
-		flex: 0 0 100%;
+	.gallery h2 {
+		font-size: 1.35rem;
+		padding: 0 12px;
+	}
+
+	.gallery-container {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 0 12px;
+		gap: 16px;
+	}
+
+	.gallery-item {
+		flex: 1 1 100%;
 		max-width: 100%;
+	}
+
+	.gallery-item img {
+		min-height: 200px;
+		max-height: 280px;
 	}
 
 	.price-package .content {
@@ -1250,11 +1507,61 @@ header .ham-burger.active span:nth-child(2) {
 		flex: 0 0 100%;
 		max-width: 100%;
 	}
+
+	header .nav ul li a {
+		font-size: 22px;
+		padding: 12px 24px;
+	}
+
+	.classes .content .text p {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
-/*if screen width is less than or equal to 550px then*/
 @media(max-width: 550px) {
+	.logo img {
+		width: 72px;
+	}
+
+	.home {
+		padding-top: max(88px, calc(env(safe-area-inset-top) + 76px));
+	}
+
 	.home h1 {
-		font-size: 30px;
+		font-size: clamp(1rem, 5.2vw + 0.4rem, 2.5rem);
+	}
+
+	.home .go-down {
+		bottom: max(24px, env(safe-area-inset-bottom));
+	}
+
+	header .nav {
+		width: min(100%, 300px);
+	}
+
+	.latest-event .btn-more {
+		display: block;
+		width: 100%;
+		max-width: 280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.service .content .text h2,
+	.classes .content .text h2,
+	.contact .content .text h2 {
+		font-size: 1.35rem;
+		line-height: 1.25;
+	}
+
+	.about .content .box .inner .text {
+		padding: 20px 16px;
+	}
+}
+
+@media (max-width: 380px) {
+	header .nav ul li a {
+		font-size: 19px;
 	}
 }
