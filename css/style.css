@@ -328,7 +328,7 @@ button.btn-primary {
 .hero-bg {
 	position: absolute;
 	inset: 0;
-	background: var(--bg-deep) url('../images/home.jpg') center / cover no-repeat;
+	background: var(--bg-deep) url('../images/galeria-turma-tatame-vermelho.png') center / cover no-repeat;
 	transform: scale(1.02);
 }
 
