@@ -1,1 +1,1 @@
-# teles-dojo-website
+# Garyu Dojo Website
